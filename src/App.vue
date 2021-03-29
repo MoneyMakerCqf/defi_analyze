@@ -7,6 +7,7 @@
 
       <el-main>
         <router-view></router-view>
+        <echart_demo/>
       </el-main>
 
       <el-footer>
@@ -18,11 +19,13 @@
 
 <script>
 import Navigation from './components/Navigation';
+import echart_demo from "./components/echart_demo";
 
 export default {
   name: 'App',
   components: {
     Navigation,
+    echart_demo
   },
 
 }
