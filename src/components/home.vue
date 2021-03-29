@@ -1,20 +1,32 @@
 <template>
-  <div>
-    <div style="text-align: center; font-size: 30px">
+  <div style="width: 80%; margin-left: 10%">
+    <div style="text-align: center; font-size: 40px">
       Analyze-charts
     </div>
-    <div id="home">
-      <div class="block" v-for="chart in charts" :key="chart.id">
-        <router-link :to="{ path: chart.id}">
-          {{chart.intro}}
-          <el-image
-              v-if="chart.img_src"
-              :src="chart.img_src"
-              :fit="fit">
-          </el-image>
-        </router-link>
-
-      </div>
+    <div class="outcard" v-for="label in labels" :key="label.name">
+      <el-card class="outcard" hadow="always">
+        {{label.name}}
+        <br><br>
+        <el-row :gutter="20" class="card">
+          <el-col :span="6" v-for="chart in label.charts" :key="chart.id">
+            <el-card shadow="hover" :body-style="{ padding: '0px' }">
+              <router-link :to="{ path: chart.id}">
+                <div style="background-color: #e5e5e5;">
+                  <div style="margin-left: 10px">
+                    {{chart.intro}}
+                  </div>
+                </div>
+                <el-image
+                    v-if="chart.img_src"
+                    :src="chart.img_src"
+                    :fit="fit">
+                </el-image>
+              </router-link>
+            </el-card>
+          </el-col>
+        </el-row>
+      </el-card>
+      <br>
     </div>
   </div>
 </template>
@@ -25,26 +37,38 @@ export default {
   data() {
     return {
       fit: "fill",
-      charts: [{
-        id: "/charts/1",
-        img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-        path: 'eth&usdt',
-        intro: 'eth price',
+      labels: [{
+        name: "Market Data",
+        charts: [{
+          id: "/charts/1",
+          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          path: 'eth&usdt',
+          intro: 'eth price',
+        },{
+          id: "/charts/2",
+          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          path: 'btc&usdt',
+          intro: 'btc price',
+        },{
+          id: "/charts/3",
+          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          path: 'kava&usdt',
+          intro: 'kava price',
+        },{
+          id: "/charts/4",
+          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          path: 'dot&usdt',
+          intro: 'dot price',
+        }],
       },{
-        id: "/charts/2",
-        img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-        path: 'btc&usdt',
-        intro: 'btc price',
-      },{
-        id: "/charts/3",
-        img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-        path: 'kava&usdt',
-        intro: 'kava price',
-      }],
+        name: "Blockchain Data",
+      },],
+
     }
   },
   mounted() {
-    this.$axios({
+    let axios = require('axios')
+    axios({
       method: 'get',
       url: '/home',
       params: {
@@ -59,7 +83,7 @@ export default {
             path: datalist[i].path,
             intro: datalist[i].intro
           }
-          this.charts.push(chart);
+          this.labels.charts.push(chart);
         }
       }
     });
@@ -67,24 +91,20 @@ export default {
 }
 </script>
 
+
 <style scoped>
-#home{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  line-height: 30px;
+.card {
+  line-height: 40px;
+  font-size: 17px;
+  height: auto;
 }
-.block{
-  flex: 1;
-  width: 30%;
-  min-width: 30%;
-  max-width: 30%;
-  text-align: center;
+.outcard{
+  line-height: 20px;
+  font-size: 20px;
+  text-align: left;
 }
-.after-add {
-  height: 0;
-  padding: 0;
-  margin: 0;
+a {
+  text-decoration: none;
 }
+
 </style>

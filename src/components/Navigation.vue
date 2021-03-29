@@ -1,7 +1,7 @@
 <template>
   <div id="navi">
     <el-row :gutter="10" type="flex" style="height: 100%">
-      <el-col :span="4">
+      <el-col :span="3">
         <router-link to='/' class="el-col">
           <el-image
             style="width: 50px; height: 50px;"

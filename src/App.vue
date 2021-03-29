@@ -30,8 +30,8 @@ export default {
 
 <style>
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -52,7 +52,7 @@ body {
   background-color: #ffffff;
   color: #333;
   text-align: center;
-  line-height: 160px;
+  line-height: 80px;
 }
 
 body > .el-container {
