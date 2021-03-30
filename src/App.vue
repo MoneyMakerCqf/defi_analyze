@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:style="{ width: browser_maxwidth }">
     <el-container>
       <el-header>
         <Navigation/>
@@ -7,7 +7,6 @@
 
       <el-main>
         <router-view></router-view>
-        <echart_demo/>
       </el-main>
 
       <el-footer>
@@ -19,15 +18,17 @@
 
 <script>
 import Navigation from './components/Navigation';
-import echart_demo from "./components/echart_demo";
 
 export default {
   name: 'App',
+  data() {
+    return{
+      browser_maxwidth: window.screen.width,
+    }
+  },
   components: {
     Navigation,
-    echart_demo
   },
-
 }
 </script>
 
@@ -42,7 +43,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-
+  min-width: 1500px;
 }
 .el-header, .el-footer {
   background-color: #e9eefc;
@@ -60,6 +61,10 @@ body {
 
 body > .el-container {
   margin-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
 }
 
 
