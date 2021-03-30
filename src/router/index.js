@@ -1,7 +1,8 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import home from '../components/home'
-import chart from "@/components/chart";
+import Vue from 'vue';
+import Router from 'vue-router';
+import home from '../components/home';
+import linechart from "@/components/linechart";
+import echart_demo from "@/components/echart_demo";
 
 Vue.use(Router)
 
@@ -18,9 +19,14 @@ export default new Router({
       component: home,
     },
     {
-      path: '/charts/:chartid',
-      name: 'chart',
-      component: chart
+      path: '/charts/line/:name',
+      name: 'line-chart',
+      component: linechart,
+    },
+    {
+      path: '/charts/topology/:name',
+      name: 'topology-chart',
+      component: echart_demo,
     }
   ]
 })

@@ -10,7 +10,7 @@
         <el-row :gutter="20" class="card">
           <el-col :span="6" v-for="chart in label.charts" :key="chart.id">
             <el-card shadow="hover" :body-style="{ padding: '0px' }">
-              <router-link :to="{ path: chart.id}">
+              <router-link :to="{ path: chart.path}">
                 <div style="background-color: #e5e5e5;">
                   <div style="margin-left: 10px">
                     {{chart.intro}}
@@ -40,28 +40,33 @@ export default {
       labels: [{
         name: "Market Data",
         charts: [{
-          id: "/charts/1",
           img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: 'eth&usdt',
+          path: '/charts/line/eth&usdt',
           intro: 'eth price',
         },{
-          id: "/charts/2",
           img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: 'btc&usdt',
+          path: '/charts/line/btc&usdt',
           intro: 'btc price',
         },{
-          id: "/charts/3",
           img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: 'kava&usdt',
+          path: '/charts/line/kava&usdt',
           intro: 'kava price',
         },{
-          id: "/charts/4",
           img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: 'dot&usdt',
+          path: '/charts/line/dot&usdt',
           intro: 'dot price',
         }],
       },{
         name: "Blockchain Data",
+        charts: [{
+          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          path: '/charts/topology/:name',
+          intro: 'defi topologic graph',
+        },{
+          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+          path: 'btc&usdt',
+          intro: 'btc price',
+        },],
       },],
 
     }
@@ -70,7 +75,7 @@ export default {
     let axios = require('axios')
     axios({
       method: 'get',
-      url: '/home',
+      url: '/',
       params: {
       },
     }).then(res => {
@@ -102,9 +107,6 @@ export default {
   line-height: 20px;
   font-size: 20px;
   text-align: left;
-}
-a {
-  text-decoration: none;
 }
 
 </style>
