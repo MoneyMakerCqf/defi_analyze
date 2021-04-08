@@ -1,17 +1,17 @@
 <template>
-  <div style="width: 80%; margin-left: 10%">
-    <div style="text-align: center; font-size: 40px">
-      Analyze-charts
+  <div style="width: 90%; margin-left: 5%">
+    <div style="text-align: left; font-size: 40px">
+      Defi Charts & Statistics
     </div>
     <div class="outcard" v-for="label in labels" :key="label.name">
-      <el-card class="outcard" hadow="always">
+      <el-card class="outcard" hadow="always" >
         {{label.name}}
         <br><br>
-        <el-row :gutter="20" class="card">
+        <el-row :gutter="20">
           <el-col :span="6" v-for="chart in label.charts" :key="chart.id">
-            <el-card shadow="hover" :body-style="{ padding: '0px' }">
+            <el-card  class="card" shadow="hover" :body-style="{ padding: '0px' }">
               <router-link :to="{ path: chart.path}">
-                <div style="background-color: #e5e5e5;">
+                <div style="background-color: #f4f4f4;">
                   <div style="margin-left: 10px">
                     {{chart.intro}}
                   </div>
@@ -99,11 +99,13 @@ export default {
 
 <style scoped>
 .card {
+  border-radius: 10px;
   line-height: 40px;
   font-size: 17px;
   height: auto;
 }
 .outcard{
+  border-radius: 10px;
   line-height: 20px;
   font-size: 20px;
   text-align: left;

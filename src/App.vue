@@ -10,7 +10,7 @@
       </el-main>
 
       <el-footer>
-        Footer
+        <foot/>
       </el-footer>
     </el-container>
   </div>
@@ -18,6 +18,7 @@
 
 <script>
 import Navigation from './components/Navigation';
+import foot from './components/foot'
 
 export default {
   name: 'App',
@@ -28,6 +29,7 @@ export default {
   },
   components: {
     Navigation,
+    foot,
   },
 }
 </script>
@@ -36,6 +38,7 @@ export default {
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -65,6 +68,10 @@ body > .el-container {
 
 a {
   text-decoration: none;
+  color: #3399ff;
+}
+a:hover{
+  color: #006ad7;
 }
 
 
