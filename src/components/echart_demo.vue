@@ -15,15 +15,18 @@ export default {
   },
   methods: {
     initCharts() {
-// 初始化echarts实例
+
       var myChart = echarts.init(document.getElementById("main"));
-      var ROOT_PATH = 'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
+      var ROOT_PATH = 'http://localhost:8282/qm/';
       var option;
 
       myChart.showLoading();
-      $.getJSON(ROOT_PATH + '/data/asset/data/les-miserables.json', function (graph) {
+      $.getJSON(ROOT_PATH + 'app-relation.json', function (graph) {
         myChart.hideLoading();
+        for (var i = 0; i < graph.nodes.length; i++){
 
+          graph.nodes[i].symbolSize = 1.6 * Math.log(graph.nodes[i].value);
+        }
         graph.nodes.forEach(function (node) {
           node.label = {
             show: node.symbolSize > 30
@@ -47,9 +50,14 @@ export default {
           animationEasingUpdate: 'quinticInOut',
           series: [
             {
-              name: 'Les Miserables',
+              name: 'Topological Graph',
               type: 'graph',
-              layout: 'none',
+              layout: 'force',
+              force: {
+                repulsion: 90,
+                gravity: 0.3,
+                edgeLength: 40
+              },
               data: graph.nodes,
               links: graph.links,
               categories: graph.categories,
@@ -68,13 +76,21 @@ export default {
                   width: 10
                 }
               }
+
             }
           ]
         }
         myChart.setOption(option)
       });
-// 绘制图表
+
       option && myChart.setOption(option);
+
+      myChart.on("click", function (params) {
+            if(params.dataType ==='node')
+              window.open('https://etherscan.io/address/' + encodeURIComponent(params.name));
+          }
+      );
+
     },
   },
 }
@@ -83,7 +99,7 @@ export default {
 .main_container {
   width: 2000px;
   height: 2000px;
-  /*margin:0; padding:0;*/
+  margin:10px;
   overflow: hidden;
 }
 </style>
