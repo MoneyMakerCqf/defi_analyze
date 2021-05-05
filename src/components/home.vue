@@ -18,7 +18,7 @@
                 </div>
                 <el-image
                     v-if="chart.img_src"
-                    :src="chart.img_src"
+                    :src="require('../assets'+chart.img_src.replace('../assets',''))"
                     :fit="fit">
                 </el-image>
               </router-link>
@@ -40,36 +40,35 @@ export default {
       labels: [{
         name: "Market Data",
         charts: [{
-          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: '/charts/line/eth&usdt',
-          intro: 'eth price',
+          img_src: '../assets/tx_line.png',
+          path: '/charts/line/transaction_times',
+          intro: 'transaction times',
         },{
-          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: '/charts/line/btc&usdt',
-          intro: 'btc price',
+          img_src: '../assets/tx_line.png',
+          path: '/charts/line/transaction',
+          intro: 'transaction times',
         },{
-          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: '/charts/line/kava&usdt',
-          intro: 'kava price',
+          img_src: '../assets/tx_line.png',
+          path: '/charts/line/transaction',
+          intro: 'transaction times',
         },{
-          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: '/charts/line/dot&usdt',
-          intro: 'dot price',
-        }],
+          img_src: '../assets/tx_line.png',
+          path: '/charts/line/transaction',
+          intro: 'transaction times',
+        },
+        ],
       },{
-        name: "Blockchain Data",
+        name: "User Data",
         charts: [{
-          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: '/charts/topology/:name',
-          intro: 'defi topologic graph',
-        },{
-          img_src: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-          path: 'btc&usdt',
-          intro: 'btc price',
-        },],
-      },],
+          img_src: '../assets/tx_line.png',
+          path: '/charts/line/transaction',
+          intro: 'transaction times',
+        },]
+      }
+      ],
 
     }
+
   },
   mounted() {
     let axios = require('axios')
