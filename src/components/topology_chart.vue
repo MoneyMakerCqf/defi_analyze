@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div id="main" class="main_container"></div>
+    <div style="width: 80%; margin-left: 10%">
+      <el-card shadow="always" v-loading="loading">
+        <div style="font-size: 30px">{{chartname}}</div>
+        <div class="echart" id="echart-topology" :style="{float:'left',width: '100%', height: '1200px'}"></div>
+      </el-card>
+    </div>
   </div>
 </template>
 <script>
@@ -8,7 +13,9 @@ import * as echarts from "echarts"
 import $ from "jquery"
 export default {
   data() {
-    return {}
+    return {
+      chartname: this.$route.params.name,
+    }
   },
   mounted() {
     this.initCharts()
@@ -16,7 +23,7 @@ export default {
   methods: {
     initCharts() {
 
-      var myChart = echarts.init(document.getElementById("main"));
+      var myChart = echarts.init(document.getElementById("echart-topology"));
       var ROOT_PATH = 'http://localhost:8282/qm/';
       var option;
 
@@ -41,11 +48,6 @@ export default {
           },
           tooltip: {},
           legend: [{
-            itemWidth: 50,
-            itemHeight: 30,
-            textStyle: {
-              fontSize: 20
-            },
             // selectedMode: 'single',
             data: graph.categories.map(function (a) {
               return a.name;
@@ -101,10 +103,5 @@ export default {
 }
 </script>
 <style scoped>
-.main_container {
-  width: 2000px;
-  height: 2000px;
-  margin:10px;
-  overflow: hidden;
-}
+
 </style>

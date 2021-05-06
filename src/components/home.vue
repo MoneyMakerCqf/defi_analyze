@@ -50,11 +50,11 @@ export default {
         charts: [{
           img_src: '../assets/app-flow.png',
           path: '/charts/line-column/app-flow',
-          intro: 'app-flow',
+          intro: 'app flow',
         },{
-          img_src: '../assets/tx_line.png',
-          path: '/charts/line/transaction',
-          intro: 'transaction times',
+          img_src: '../assets/tpo_graph.png',
+          path: '/charts/topology/app-relation',
+          intro: 'app relation',
         },]
       }
       ],

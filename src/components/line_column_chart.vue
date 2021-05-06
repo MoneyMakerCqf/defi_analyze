@@ -77,8 +77,8 @@ export default {
               type: 'value',
               name: '调用/被调用(次数)',
               min: 0,
-              max: 100,
-              interval: 10,
+              max: 70,
+              interval: 7,
               axisLabel: {
                 formatter: '{value}'
               }

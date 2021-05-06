@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import home from '../components/home';
 import linechart from "@/components/linechart";
-import echart_demo from "@/components/echart_demo";
+import topology_chart from "@/components/topology_chart";
 import line_column_chart from "@/components/line_column_chart";
 
 Vue.use(Router)
@@ -27,7 +27,7 @@ export default new Router({
     {
       path: '/charts/topology/:name',
       name: 'topology-chart',
-      component: echart_demo,
+      component: topology_chart,
     },
     {
       path: '/charts/line-column/:name',
