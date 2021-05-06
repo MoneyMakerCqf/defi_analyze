@@ -34,13 +34,18 @@ export default {
         });
         option = {
           title: {
-            text: 'Les Miserables',
-            subtext: 'Default layout',
+            text: 'Topological Graph',
+            subtext: 'Force layout',
             top: 'bottom',
             left: 'right'
           },
           tooltip: {},
           legend: [{
+            itemWidth: 50,
+            itemHeight: 30,
+            textStyle: {
+              fontSize: 20
+            },
             // selectedMode: 'single',
             data: graph.categories.map(function (a) {
               return a.name;
@@ -87,7 +92,7 @@ export default {
 
       myChart.on("click", function (params) {
             if(params.dataType ==='node')
-              window.open('https://etherscan.io/address/' + encodeURIComponent(params.name));
+              window.open('https://etherscan.io/' + encodeURIComponent(params.name));
           }
       );
 
