@@ -43,23 +43,15 @@ export default {
           img_src: '../assets/tx_line.png',
           path: '/charts/line/transaction_times',
           intro: 'transaction times',
-        },{
-          img_src: '../assets/tx_line.png',
-          path: '/charts/line/transaction',
-          intro: 'transaction times',
-        },{
-          img_src: '../assets/tx_line.png',
-          path: '/charts/line/transaction',
-          intro: 'transaction times',
-        },{
-          img_src: '../assets/tx_line.png',
-          path: '/charts/line/transaction',
-          intro: 'transaction times',
         },
         ],
       },{
-        name: "User Data",
+        name: "App Data",
         charts: [{
+          img_src: '../assets/app-flow.png',
+          path: '/charts/line-column/app-flow',
+          intro: 'app-flow',
+        },{
           img_src: '../assets/tx_line.png',
           path: '/charts/line/transaction',
           intro: 'transaction times',
