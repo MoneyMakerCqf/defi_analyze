@@ -7,7 +7,7 @@
           :src="require('../assets/logo.png')"
           :fit="fit">
         </el-image>
-        <p class="p_logo">Defi-Analyze</p>
+        <p class="p_logo">DeFi Analysis</p>
       </div>
     </router-link>
 

@@ -2,7 +2,7 @@
   <div id="navi">
     <el-row :gutter="20" type="flex" style="height: 100%">
       <el-col :span="6">
-        <p> Copyright by Sustech-Defi-Analyze-Group </p>
+        <p> Copyright by Sustech-DeFi-Analyze-Group </p>
       </el-col>
     </el-row>
   </div>

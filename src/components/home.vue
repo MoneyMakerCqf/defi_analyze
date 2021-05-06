@@ -1,7 +1,7 @@
 <template>
   <div style="width: 90%; margin-left: 5%">
     <div style="text-align: left; font-size: 40px">
-      Defi Charts & Statistics
+      DeFi Charts & Statistics
     </div>
     <div class="outcard" v-for="label in labels" :key="label.name">
       <el-card class="outcard" hadow="always" >

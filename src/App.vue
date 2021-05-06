@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-bind:style="{ width: browser_maxwidth }">
+  <div id="app" class="body" v-bind:style="{ width: browser_maxwidth }" >
     <el-container>
       <el-header>
         <Navigation/>
@@ -35,10 +35,11 @@ export default {
 </script>
 
 <style>
+@import "./assets/font.css";
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial;
+  font-family: myfont;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
