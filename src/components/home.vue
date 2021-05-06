@@ -48,9 +48,9 @@ export default {
           path: '/charts/line/transaction',
           intro: 'transaction times',
         },{
-          img_src: '../assets/tx_line.png',
-          path: '/charts/line/transaction',
-          intro: 'transaction times',
+          img_src: '../assets/tpo_graph.png',
+          path: '/charts/topology/tpo',
+          intro: 'topological graph',
         },{
           img_src: '../assets/tx_line.png',
           path: '/charts/line/transaction',
