@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     initChart(){
-      $.getJSON('http://localhost:8282/qm/tx-volume.json', function (graph) {
+      $.getJSON('http://localhost:8282/qm/'+ this.chartname +'.json', function (graph) {
         let label = [];
         let xData = [];
         let yData = [];
@@ -33,7 +33,9 @@ export default {
           let proj = {
             name: l,
             type: 'line',
+            smooth: true,
             data: [],
+            emphasis: {focus: 'series'},
           }
           for (let i=0; i<graph.category[l].length; i++){
             proj.data.push(graph.category[l][i]);

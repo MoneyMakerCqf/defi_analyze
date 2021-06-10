@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     initChart(){
-      $.getJSON('http://localhost:8282/qm/app-flow.json', function (graph) {
+      $.getJSON('http://localhost:8282/qm/'+ this.chartname + '.json', function (graph) {
         // 数据处理读入
         let xData = [];
         let yData_in = [];

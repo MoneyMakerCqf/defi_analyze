@@ -41,8 +41,13 @@ export default {
         name: "Market Data",
         charts: [{
           img_src: '../assets/tx_line.png',
-          path: '/charts/line/transaction_times',
+          path: '/charts/line/transaction-times',
           intro: 'transaction times',
+        },
+        {
+            img_src: '../assets/nft-market.png',
+            path: '/charts/pie/nft-market-share',
+            intro: 'nft market share',
         },
         ],
       },{
@@ -55,7 +60,12 @@ export default {
           img_src: '../assets/tpo_graph.png',
           path: '/charts/topology/app-relation',
           intro: 'app relation',
-        },]
+        },{
+          img_src: '../assets/whale_app.png',
+          path: '/charts/pie/whale-app',
+          intro: 'whale app',
+        },
+        ]
       }
       ],
 

@@ -4,6 +4,7 @@ import home from '../components/home';
 import linechart from "@/components/linechart";
 import topology_chart from "@/components/topology_chart";
 import line_column_chart from "@/components/line_column_chart";
+import pie_chart from "@/components/pie_chart";
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
       path: '/charts/line-column/:name',
       name: 'line-column-chart',
       component: line_column_chart,
+    },
+    {
+      path: '/charts/pie/:name',
+      name: 'pie-chart',
+      component: pie_chart,
     },
   ]
 })
