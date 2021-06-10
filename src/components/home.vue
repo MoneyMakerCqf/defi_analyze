@@ -46,7 +46,7 @@ export default {
         },
         {
             img_src: '../assets/nft-market.png',
-            path: '/charts/pie/nft-market-share',
+            path: '/charts/simplepie/nft-market-share',
             intro: 'nft market share',
         },
         ],

@@ -3,15 +3,15 @@
     <div style="width: 80%; margin-left: 10%">
       <el-card shadow="always" v-loading="loading">
         <div style="font-size: 30px">{{chartname}}</div>
-        <div class="echart" id="echart-pie" :style="{float:'left',width: '100%', height: '600px'}"></div>
+        <div class="echart" id="echart-nightingale" :style="{float:'left',width: '100%', height: '600px'}"></div>
       </el-card>
     </div>
   </div>
 </template>
 
 <script>
-import * as echarts from 'echarts';
 import $ from "jquery";
+import * as echarts from "echarts";
 
 export default {
   data() {
@@ -35,47 +35,32 @@ export default {
           Data.push(app);
         }
 
-        var chartDom = document.getElementById('echart-pie');
+        var chartDom = document.getElementById('echart-nightingale');
         var myChart = echarts.init(chartDom);
         var option;
 
         option = {
-          tooltip: {
-            trigger: 'item'
+          legend: {
+            top: 'bottom'
           },
           toolbox: {
+            show: true,
             feature: {
-              saveAsImage: {}
+              mark: {show: true},
+              dataView: {show: true, readOnly: false},
+              restore: {show: true},
+              saveAsImage: {show: true}
             }
-          },
-          legend: {
-            top: '5%',
-            left: 'center'
           },
           series: [
             {
+              name: '面积模式',
               type: 'pie',
-              radius: ['40%', '70%'],
-              avoidLabelOverlap: false,
+              radius: [50, 250],
+              center: ['50%', '50%'],
+              roseType: 'area',
               itemStyle: {
-                borderRadius: 10,
-                borderColor: '#fff',
-                borderWidth: 2
-              },
-              label: {
-                show: false,
-                position: 'center'
-              },
-              emphasis: {
-                label: {
-                  show: true,
-                  fontSize: '40',
-                  fontWeight: 'bold'
-                },
-                focus: 'data'
-              },
-              labelLine: {
-                show: false
+                borderRadius: 8
               },
               data: Data,
             }

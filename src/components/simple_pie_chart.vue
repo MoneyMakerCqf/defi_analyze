@@ -3,15 +3,15 @@
     <div style="width: 80%; margin-left: 10%">
       <el-card shadow="always" v-loading="loading">
         <div style="font-size: 30px">{{chartname}}</div>
-        <div class="echart" id="echart-pie" :style="{float:'left',width: '100%', height: '600px'}"></div>
+        <div class="echart" id="echart-simple-pie" :style="{float:'left',width: '100%', height: '600px'}"></div>
       </el-card>
     </div>
   </div>
 </template>
 
 <script>
-import * as echarts from 'echarts';
 import $ from "jquery";
+import * as echarts from "echarts";
 
 export default {
   data() {
@@ -29,13 +29,13 @@ export default {
         var Data = [];
         for (let name in graph){
           let app = {
-            value: graph[name],
+            value: Math.log(graph[name]+1),
             name: name
           }
           Data.push(app);
         }
 
-        var chartDom = document.getElementById('echart-pie');
+        var chartDom = document.getElementById('echart-simple-pie');
         var myChart = echarts.init(chartDom);
         var option;
 
@@ -49,38 +49,27 @@ export default {
             }
           },
           legend: {
-            top: '5%',
-            left: 'center'
+            orient: 'vertical',
+            left: 'left',
           },
           series: [
             {
+              name: '访问来源',
               type: 'pie',
-              radius: ['40%', '70%'],
-              avoidLabelOverlap: false,
-              itemStyle: {
-                borderRadius: 10,
-                borderColor: '#fff',
-                borderWidth: 2
-              },
-              label: {
-                show: false,
-                position: 'center'
-              },
+              radius: '50%',
+              data: Data,
               emphasis: {
-                label: {
-                  show: true,
-                  fontSize: '40',
-                  fontWeight: 'bold'
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
                 },
                 focus: 'data'
-              },
-              labelLine: {
-                show: false
-              },
-              data: Data,
+              }
             }
           ]
         };
+
         option && myChart.setOption(option);
       });
     }

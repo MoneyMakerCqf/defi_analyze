@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     initChart(){
-      $.getJSON('http://localhost:8282/qm/'+ this.chartname +'.json', function (graph) {
+      $.getJSON('http://10.20.0.57/'+ this.chartname +'.json', function (graph) {
         let label = [];
         let xData = [];
         let yData = [];

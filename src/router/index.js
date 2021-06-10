@@ -5,6 +5,8 @@ import linechart from "@/components/linechart";
 import topology_chart from "@/components/topology_chart";
 import line_column_chart from "@/components/line_column_chart";
 import pie_chart from "@/components/pie_chart";
+import nightingale_chart from "@/components/nightingale_chart";
+import simple_pie_chart from "@/components/simple_pie_chart";
 
 Vue.use(Router)
 
@@ -39,6 +41,16 @@ export default new Router({
       path: '/charts/pie/:name',
       name: 'pie-chart',
       component: pie_chart,
+    },
+    {
+      path: '/charts/nightingale/:name',
+      name: 'nightingale-chart',
+      component: nightingale_chart,
+    },
+    {
+      path: '/charts/simplepie/:name',
+      name: 'simplepie-chart',
+      component: simple_pie_chart,
     },
   ]
 })

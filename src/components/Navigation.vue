@@ -19,7 +19,7 @@
       <p class="p_link">About us</p>
     </router-link>
 
-    <a href='https://github.com/MoneyMakerCqf/defi_analyze/tree/main' style="width: fit-content" target="_blank">
+    <a href='https://github.com/MoneyMakerCqf/defi_analyze/tree/master' style="width: fit-content" target="_blank">
       <div class="div_logo">
         <el-image
             style="width: 60px; height: 60px;"

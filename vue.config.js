@@ -5,6 +5,8 @@ function resolve(dir) {
 }
 module.exports = {
     outputDir: 'dist',
+    runtimeCompiler: true,
+    publicPath: './',
 
     // 是否为生产环境构建生成 source map？
     productionSourceMap: false,
@@ -27,7 +29,6 @@ module.exports = {
             }
         }
     },
-
 
     // 配置 webpack-dev-server 行为。
     devServer: {

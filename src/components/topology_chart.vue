@@ -24,7 +24,7 @@ export default {
     initCharts() {
 
       var myChart = echarts.init(document.getElementById("echart-topology"));
-      var ROOT_PATH = 'http://localhost:8282/qm/';
+      var ROOT_PATH = 'http://10.20.0.57/';
       var option;
 
       myChart.showLoading();
